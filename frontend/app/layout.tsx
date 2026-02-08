@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Suspense } from "react"
 import type { Metadata, Viewport } from 'next'
 import { Geist, Geist_Mono, Caveat } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
@@ -6,6 +6,7 @@ import { Sidebar } from '@/components/sidebar'
 import { ThemeProvider } from '@/components/theme-provider'
 import { Toaster } from 'sonner'
 import { TasksProvider } from '@/context/tasks-context'
+import { GalleryProvider } from '@/context/gallery-context'
 import './globals.css'
 
 const geist = Geist({ subsets: ['latin'], variable: '--font-sans' })
@@ -53,7 +54,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${geist.variable} ${geistMono.variable} ${caveat.variable}`} suppressHydrationWarning>
-      <body className="font-sans antialiased">
+      <body className="font-sans antialiased" suppressHydrationWarning>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -61,12 +62,16 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <TasksProvider>
-            <div className="flex h-screen overflow-hidden">
-              <Sidebar />
-              <main className="flex-1 overflow-auto">
-                {children}
-              </main>
-            </div>
+            <GalleryProvider>
+              <div className="flex h-screen overflow-hidden">
+                <Suspense fallback={null}>
+                  <Sidebar />
+                </Suspense>
+                <main className="flex-1 overflow-auto">
+                  {children}
+                </main>
+              </div>
+            </GalleryProvider>
             <Toaster />
           </TasksProvider>
           <Analytics />

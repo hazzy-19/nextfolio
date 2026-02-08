@@ -7,7 +7,6 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
-import { CursorFollower } from '@/components/cursor-follower'
 import { useTasks } from '@/context/tasks-context'
 
 export default function Dashboard() {
@@ -49,7 +48,7 @@ export default function Dashboard() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background to-slate-900/5 dark:to-slate-900/50 p-4 md:p-8 relative overflow-hidden">
-      <CursorFollower />
+      {/* Hero Section */}
       {/* Hero Section */}
       <div className="mb-8 min-h-[60vh] flex items-center justify-center p-4">
         <div className="w-full max-w-4xl rounded-3xl p-8 md:p-12 text-center relative overflow-hidden group">

@@ -188,9 +188,9 @@ export default function RemindersPage() {
                   onChange={(e) => setNewTaskPriority(e.target.value)}
                   className="w-full px-4 py-3 rounded-lg bg-background text-foreground border border-primary/20 focus:outline-none focus:border-primary/40"
                 >
-                  <option value="medium" style={{ color: 'black', backgroundColor: 'white' }}>Medium</option>
-                  <option value="low" style={{ color: 'black', backgroundColor: 'white' }}>Low</option>
-                  <option value="high" style={{ color: 'black', backgroundColor: 'white' }}>High</option>
+                  <option value="medium" className="bg-background text-foreground">Medium</option>
+                  <option value="low" className="bg-background text-foreground">Low</option>
+                  <option value="high" className="bg-background text-foreground">High</option>
                 </select>
               </div>
               <div>
@@ -327,9 +327,9 @@ export default function RemindersPage() {
                               className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
                               title="Move task"
                             >
-                              <option value="todo" style={{ color: 'black', backgroundColor: 'white' }}>To Do</option>
-                              <option value="in-progress" style={{ color: 'black', backgroundColor: 'white' }}>In Progress</option>
-                              <option value="done" style={{ color: 'black', backgroundColor: 'white' }}>Done</option>
+                              <option value="todo" className="bg-background text-foreground">To Do</option>
+                              <option value="in-progress" className="bg-background text-foreground">In Progress</option>
+                              <option value="done" className="bg-background text-foreground">Done</option>
                             </select>
                           </div>
 
